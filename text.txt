@@ -1,0 +1,31 @@
+<?php
+
+    if(isset($_SESSION['username'])){
+        echo '<li><a href="account.php">My Account</a></li>';
+        echo '<li><a href="logout.php">Log Out</a></li>';
+    }
+    else{
+        echo '<li><a href="login.php">Log In</a></li>';
+        echo '<li><a href="register.php">Register</a></li>';
+    }
+
+    $brand = $_POST["brand"];
+    $model = $_POST["model"];
+    $desc = $_POST["desc"];
+    $img = $_POST["img"];
+    $quantity = $_POST["quantity"];
+    $price = $_POST["price"];
+
+    echo "successful";
+
+    if(!$img) $img = "default_car.jpg";
+
+    $update = $mysqli->query("INSERT INTO `cars` ( `brand`, `model`, `description`, `product_img_name`, `qty`, `price`)
+    VALUES('".$brand."' , '".$model."' , '".$desc. "' , '".$img."' , ".$quantity." , ".$price." )");
+
+
+    if($update){
+
+    }
+
+          ?>
